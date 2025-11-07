@@ -88,31 +88,31 @@ export default function CategoryTable({ title, icon: Icon, color, subcategories,
   };
 
   return (
-    <div className={`border-3 ${colors.border} rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow`}>
+    <div className={`border-2 ${colors.border} rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow`}>
       {/* Header */}
-      <div className={`${colors.bg} px-8 py-6 flex items-center gap-4`}>
-        <div className={`${colors.iconBg} p-3 rounded-xl`}>
-          <Icon className="w-8 h-8 text-white" />
+      <div className={`${colors.bg} px-4 py-3 flex items-center gap-3`}>
+        <div className={`${colors.iconBg} p-2 rounded-lg`}>
+          <Icon className="w-5 h-5 text-white" />
         </div>
-        <h2 className={`text-3xl font-bold ${colors.text} tracking-wide`}>{title}</h2>
+        <h2 className={`text-xl font-bold ${colors.text} tracking-wide`}>{title}</h2>
       </div>
 
       {/* Table */}
-      <div className="bg-gradient-to-br from-gray-50 to-white p-8">
+      <div className="bg-gradient-to-br from-gray-50 to-white p-4">
         <table className="w-full border-collapse border-2 border-gray-300">
           <thead>
             <tr className="border-b-2 border-gray-300">
               {subcategories.map((subcategory, index) => (
                 <th
                   key={index}
-                  className={`px-4 py-5 text-sm font-semibold text-center border-r-2 border-gray-300 last:border-r-0 tracking-wide ${
+                  className={`px-2 py-2 text-xs font-semibold text-center border-r-2 border-gray-300 last:border-r-0 ${
                     isAdaptive(subcategory.name)
                       ? 'bg-gradient-to-br from-orange-400 to-amber-500 text-white'
                       : colors.text
                   }`}
                 >
                   <div className="flex flex-col items-center gap-1">
-                    <span className="leading-snug">{subcategory.name}</span>
+                    <span className="leading-tight">{subcategory.name}</span>
                   </div>
                 </th>
               ))}
@@ -124,40 +124,39 @@ export default function CategoryTable({ title, icon: Icon, color, subcategories,
                 {subcategories.map((subcategory, colIndex) => (
                   <td
                     key={colIndex}
-                    className="px-4 py-4 border-r-2 border-gray-300 last:border-r-0"
+                    className="px-2 py-2 border-r-2 border-gray-300 last:border-r-0"
                   >
                     {subcategory.attributes[rowIndex] ? (
                       <div className={`
                         ${isAttributeSelected(subcategory.name, subcategory.attributes[rowIndex])
-                          ? 'bg-gradient-to-br from-emerald-400 via-green-400 to-teal-500 !text-white border-emerald-500 shadow-lg shadow-emerald-200'
+                          ? 'bg-gradient-to-br from-emerald-400 via-green-400 to-teal-500 !text-white border-emerald-500 shadow-md shadow-emerald-200'
                           : selectedPersona
                             ? 'bg-white'
                             : colors.cardBg
                         }
                         ${colors.cardHover}
-                        border-2 ${isAttributeSelected(subcategory.name, subcategory.attributes[rowIndex]) ? 'border-emerald-500' : colors.cardBorder}
-                        rounded-xl
-                        px-5 py-4
-                        text-sm
+                        border ${isAttributeSelected(subcategory.name, subcategory.attributes[rowIndex]) ? 'border-emerald-500' : colors.cardBorder}
+                        rounded-lg
+                        px-3 py-2
+                        text-xs
                         font-medium
                         ${isAttributeSelected(subcategory.name, subcategory.attributes[rowIndex]) ? 'text-white' : colors.text}
                         text-center
-                        shadow-md
+                        shadow-sm
                         transition-all
                         duration-200
                         hover:scale-105
-                        hover:-translate-y-1
                         cursor-pointer
-                        min-h-[80px]
+                        min-h-[50px]
                         flex
                         items-center
                         justify-center
-                        leading-relaxed
+                        leading-tight
                       `}>
                         {subcategory.attributes[rowIndex]}
                       </div>
                     ) : (
-                      <div className="min-h-[80px]"></div>
+                      <div className="min-h-[50px]"></div>
                     )}
                   </td>
                 ))}
