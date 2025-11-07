@@ -36,10 +36,8 @@ export default function PersonaDetails({ selectedPersona, personaDetails }: Pers
   return (
     <div className="mx-auto px-8 pb-16">
       <div className="space-y-8">
-        {/* First Row: Personality Summary and UI/UX Customization */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {/* Personality Summary */}
-          <div className="bg-gradient-to-br from-purple-50 via-pink-50 to-white rounded-2xl shadow-2xl p-8 border-2 border-purple-200 hover:shadow-3xl transition-all duration-300">
+        {/* Personality Summary */}
+        <div className="bg-gradient-to-br from-purple-50 via-pink-50 to-white rounded-2xl shadow-2xl p-8 border-2 border-purple-200 hover:shadow-3xl transition-all duration-300">
             <div className="flex items-center gap-3 mb-6">
               <div className="bg-gradient-to-br from-purple-500 to-pink-500 p-3 rounded-xl shadow-lg">
                 <User className="w-7 h-7 text-white" />
@@ -55,8 +53,8 @@ export default function PersonaDetails({ selectedPersona, personaDetails }: Pers
             </div>
           </div>
 
-          {/* UI/UX Customization */}
-          <div className="bg-gradient-to-br from-blue-50 via-cyan-50 to-white rounded-2xl shadow-2xl p-8 border-2 border-blue-200 hover:shadow-3xl transition-all duration-300">
+        {/* UI/UX Customization */}
+        <div className="bg-gradient-to-br from-blue-50 via-cyan-50 to-white rounded-2xl shadow-2xl p-8 border-2 border-blue-200 hover:shadow-3xl transition-all duration-300">
             <div className="flex items-center gap-3 mb-6">
               <div className="bg-gradient-to-br from-blue-500 to-cyan-500 p-3 rounded-xl shadow-lg">
                 <Palette className="w-7 h-7 text-white" />
@@ -98,12 +96,9 @@ export default function PersonaDetails({ selectedPersona, personaDetails }: Pers
               </div>
             </div>
           </div>
-        </div>
 
-        {/* Second Row: Chatbot Behavior and Learning Structure */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {/* Chatbot Behavior */}
-          <div className="bg-gradient-to-br from-green-50 via-emerald-50 to-white rounded-2xl shadow-2xl p-8 border-2 border-green-200 hover:shadow-3xl transition-all duration-300">
+        {/* Chatbot Behavior */}
+        <div className="bg-gradient-to-br from-green-50 via-emerald-50 to-white rounded-2xl shadow-2xl p-8 border-2 border-green-200 hover:shadow-3xl transition-all duration-300">
             <div className="flex items-center gap-3 mb-6">
               <div className="bg-gradient-to-br from-green-500 to-emerald-500 p-3 rounded-xl shadow-lg">
                 <MessageSquare className="w-7 h-7 text-white" />
@@ -152,8 +147,8 @@ export default function PersonaDetails({ selectedPersona, personaDetails }: Pers
             </div>
           </div>
 
-          {/* Learning Structure */}
-          <div className="bg-gradient-to-br from-orange-50 via-amber-50 to-white rounded-2xl shadow-2xl p-8 border-2 border-orange-200 hover:shadow-3xl transition-all duration-300">
+        {/* Learning Structure */}
+        <div className="bg-gradient-to-br from-orange-50 via-amber-50 to-white rounded-2xl shadow-2xl p-8 border-2 border-orange-200 hover:shadow-3xl transition-all duration-300">
             <div className="flex items-center gap-3 mb-6">
               <div className="bg-gradient-to-br from-orange-500 to-amber-500 p-3 rounded-xl shadow-lg">
                 <BookOpen className="w-7 h-7 text-white" />
@@ -195,7 +190,6 @@ export default function PersonaDetails({ selectedPersona, personaDetails }: Pers
               </div>
             </div>
           </div>
-        </div>
       </div>
     </div>
   );
