@@ -666,7 +666,7 @@ Their moderate resilience and persistence mean they bounce back from setbacks re
 
       {/* Main Content */}
       <main className="mx-auto px-8 pb-12">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+        <div className="grid grid-cols-1 gap-10">
           {/* Personality */}
           <CategoryTable
             title="PERSONALITY"
