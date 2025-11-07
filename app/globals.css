@@ -3,13 +3,33 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+
+  /* PASCO Category Colors */
+  --personality: #10b981;
+  --personality-light: #d1fae5;
+  --aptitude: #3b82f6;
+  --aptitude-light: #dbeafe;
+  --skills: #f59e0b;
+  --skills-light: #fef3c7;
+  --character: #a855f7;
+  --character-light: #f3e8ff;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-inter);
+  --font-heading: var(--font-poppins);
+
+  /* PASCO Colors */
+  --color-personality: var(--personality);
+  --color-personality-light: var(--personality-light);
+  --color-aptitude: var(--aptitude);
+  --color-aptitude-light: var(--aptitude-light);
+  --color-skills: var(--skills);
+  --color-skills-light: var(--skills-light);
+  --color-character: var(--character);
+  --color-character-light: var(--character-light);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -22,5 +42,24 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-poppins), sans-serif;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-out;
 }

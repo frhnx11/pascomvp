@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10 Student Profiles - PASC Matrix</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        h1 {
+            font-size: 36px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            color: #6b7280;
+            font-size: 16px;
+        }
+        
+        .table-wrapper {
+            overflow-x: auto;
+            margin-bottom: 40px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+        }
+        
+        thead {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            background: white;
+        }
+        
+        th {
+            padding: 12px 8px;
+            text-align: left;
+            font-weight: 600;
+            border-bottom: 3px solid #e5e7eb;
+            white-space: nowrap;
+        }
+        
+        th.profile-header {
+            background: linear-gradient(135deg, #f3f4f6, #e5e7eb);
+            font-size: 11px;
+            text-align: center;
+            vertical-align: bottom;
+            position: sticky;
+            top: 0;
+            z-index: 11;
+        }
+        
+        .profile-name {
+            font-size: 14px;
+            font-weight: 700;
+            color: #1f2937;
+            margin-bottom: 4px;
+        }
+        
+        .profile-desc {
+            font-size: 10px;
+            color: #6b7280;
+            font-weight: 400;
+        }
+        
+        .section-header {
+            background: #f9fafb;
+            font-weight: 700;
+            color: #374151;
+            text-transform: uppercase;
+            font-size: 11px;
+            letter-spacing: 0.5px;
+            padding: 10px 8px !important;
+        }
+        
+        .section-personality { border-left: 4px solid #10B981; }
+        .section-aptitude { border-left: 4px solid #3B82F6; }
+        .section-skills { border-left: 4px solid #EAB308; }
+        .section-character { border-left: 4px solid #8B5CF6; }
+        
+        td {
+            padding: 8px;
+            border-bottom: 1px solid #f3f4f6;
+            vertical-align: middle;
+        }
+        
+        .subcategory-cell {
+            font-weight: 600;
+            color: #374151;
+            background: #fafafa;
+            white-space: nowrap;
+            position: sticky;
+            left: 0;
+            z-index: 5;
+            min-width: 180px;
+        }
+        
+        .attribute-cell {
+            text-align: center;
+            font-size: 12px;
+        }
+        
+        .attr {
+            padding: 4px 8px;
+            border-radius: 12px;
+            display: inline-block;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+        
+        /* Color coding by section */
+        .p-attr { background: #D1FAE5; color: #065F46; }
+        .a-attr { background: #DBEAFE; color: #1E40AF; }
+        .s-attr { background: #FEF3C7; color: #78350F; }
+        .c-attr { background: #EDE9FE; color: #5B21B6; }
+        
+        /* Profile personas legend */
+        .legend {
+            margin-top: 40px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .legend-item {
+            padding: 15px;
+            border-radius: 12px;
+            background: #f9fafb;
+            border: 1px solid #e5e7eb;
+        }
+        
+        .legend-title {
+            font-weight: 700;
+            color: #1f2937;
+            margin-bottom: 5px;
+        }
+        
+        .legend-desc {
+            color: #6b7280;
+            font-size: 13px;
+        }
+        
+        @media print {
+            body {
+                background: white;
+            }
+            .container {
+                padding: 20px;
+                box-shadow: none;
+            }
+            table {
+                font-size: 10px;
+            }
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            table {
+                font-size: 10px;
+            }
+            th, td {
+                padding: 4px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>10 Student Profiles - PASC Attribute Matrix</h1>
+            <p class="subtitle">Comprehensive MVP Student Personas with Full Subcategory Mapping</p>
+        </div>
+        
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th style="min-width: 180px;">Subcategory</th>
+                        <th class="profile-header">
+                            <div class="profile-name">P1</div>
+                            <div class="profile-desc">Academic<br>Achiever</div>
+                        </th>
+                        <th class="profile-header">
+                            <div class="profile-name">P2</div>
+                            <div class="profile-desc">Creative<br>Explorer</div>
+                        </th>
+                        <th class="profile-header">
+                            <div class="profile-name">P3</div>
+                            <div class="profile-desc">Quiet<br>Genius</div>
+                        </th>
+                        <th class="profile-header">
+                            <div class="profile-name">P4</div>
+                            <div class="profile-desc">Struggling<br>Fighter</div>
+                        </th>
+                        <th class="profile-header">
+                            <div class="profile-name">P5</div>
+                            <div class="profile-desc">Social<br>Learner</div>
+                        </th>
+                        <th class="profile-header">
+                            <div class="profile-name">P6</div>
+                            <div class="profile-desc">Methodical<br>Planner</div>
+                        </th>
+                        <th class="profile-header">
+                            <div class="profile-name">P7</div>
+                            <div class="profile-desc">Gen-Z<br>Maverick</div>
+                        </th>
+                        <th class="profile-header">
+                            <div class="profile-name">P8</div>
+                            <div class="profile-desc">Steady<br>Progresser</div>
+                        </th>
+                        <th class="profile-header">
+                            <div class="profile-name">P9</div>
+                            <div class="profile-desc">Underconfident<br>Talent</div>
+                        </th>
+                        <th class="profile-header">
+                            <div class="profile-name">P10</div>
+                            <div class="profile-desc">Enthusiastic<br>Beginner</div>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- PERSONALITY SECTION -->
+                    <tr>
+                        <td class="section-header section-personality" colspan="11">PERSONALITY</td>
+                    </tr>
+                    <tr>
+                        <td class="subcategory-cell">Learning Preference</td>
+                        <td class="attribute-cell"><span class="attr p-attr">Visual</span></td>
+                        <td class="attribute-cell"><span class="attr p-attr">Kinesthetic</span></td>
+                        <td class="attribute-cell"><span class="attr p-attr">Reading/Writing</span></td>
+                        <td class="attribute-cell"><span class="attr p-attr">Visual</span></td>
+                        <td class="attribute-cell"><span class="attr p-attr">Auditory</span></td>
+                        <td class="attribute-cell"><span class="attr p-attr">Reading/Writing</span></td>
+                        <td class="attribute-cell"><span class="attr p-attr">Visual</span></td>
+                        <td class="attribute-cell"><span class="attr p-attr">Auditory</span></td>
+                        <td class="attribute-cell"><span class="attr p-attr">Visual</span></td>
+                        <td class="attribute-cell"><span class="attr p-attr">Kinesthetic</span></td>
+                    </tr>
+                    <tr>
+                        <td class="subcategory-cell">Social Energy</td>
+                        <td class="attribute-cell"><span class="attr p-attr">Extroverted</span></td>
+                        <td class="attribute-cell"><span class="attr p-attr">Extroverted</span></td>
+                        <td class="attribute-cell"><span class="attr p-attr">Introverted</span></td>
+                        <td class="attribute-cell"><span class="attr p-attr">Ambiverted</span></td>
+                        <td class="attribute-cell"><span class="attr p-attr">Extroverted</span></td>
+                        <td class="attribute-cell"><span class="attr p-attr">Introverted</span></td>
+                        <td class="attribute-cell"><span class="attr p-attr">Extroverted</span></td>
+                        <td class="attribute-cell"><span class="attr p-attr">Ambiverted</span></td>
+                        <td class="attribute-cell"><span class="attr p-attr">Introverted</span></td>
+                        <td class="attribute-cell"><span class="attr p-attr">Extroverted</span></td>
+                    </tr>
+                    <tr>
+                        <td class="subcategory-cell">Study Preference</td>
+                        <td class="attribute-cell"><span class="attr p-attr">Small Group</span></td>
+                        <td class="attribute-cell"><span class="attr p-attr">Large Group</span></td>
+                        <td class="attribute-cell"><span class="attr p-attr">Individual</span></td>
+                        <td class="attribute-cell"><span class="attr p-attr">Small Group</span></td>
+                        <td class="attribute-cell"><span class="attr p-attr">Large Group</span></td>
+                        <td class="attribute-cell"><span class="attr p-attr">Individual</span></td>
+                        <td class="attribute-cell"><span class="attr p-attr">Small Group</span></td>
+                        <td class="attribute-cell"><span class="attr p-attr">Small Group</span></td>
+                        <td class="attribute-cell"><span class="attr p-attr">Individual</span></td>
+                        <td class="attribute-cell"><span class="attr p-attr">Large Group</span></td>
+                    </tr>
+                    <tr>
+                        <td class="subcategory-cell">Chatbot Conversation Tone</td>
+                        <td class="attribute-cell"><span class="attr p-attr">Formal</span></td>
+                        <td class="attribute-cell"><span class="attr p-attr">Gen-Z</span></td>
+                        <td class="attribute-cell"><span class="attr p-attr">Formal</span></td>
+                        <td class="attribute-cell"><span class="attr p-attr">Casual</span></td>
+                        <td class="attribute-cell"><span class="attr p-attr">Casual</span></td>
+                        <td class="attribute-cell"><span class="attr p-attr">Formal</span></td>
+                        <td class="attribute-cell"><span class="attr p-attr">Gen-Z</span></td>
+                        <td class="attribute-cell"><span class="attr p-attr">Casual</span></td>
+                        <td class="attribute-cell"><span class="attr p-attr">Casual</span></td>
+                        <td class="attribute-cell"><span class="attr p-attr">Gen-Z</span></td>
+                    </tr>
+                    <tr>
+                        <td class="subcategory-cell">Motivation Triggers</td>
+                        <td class="attribute-cell"><span class="attr p-attr">Achievement</span></td>
+                        <td class="attribute-cell"><span class="attr p-attr">Social</span></td>
+                        <td class="attribute-cell"><span class="attr p-attr">Mastery</span></td>
+                        <td class="attribute-cell"><span class="attr p-attr">Achievement</span></td>
+                        <td class="attribute-cell"><span class="attr p-attr">Social</span></td>
+                        <td class="attribute-cell"><span class="attr p-attr">Mastery</span></td>
+                        <td class="attribute-cell"><span class="attr p-attr">Social</span></td>
+                        <td class="attribute-cell"><span class="attr p-attr">Mastery</span></td>
+                        <td class="attribute-cell"><span class="attr p-attr">Mastery</span></td>
+                        <td class="attribute-cell"><span class="attr p-attr">Achievement</span></td>
+                    </tr>
+                    
+                    <!-- APTITUDE SECTION -->
+                    <tr>
+                        <td class="section-header section-aptitude" colspan="11">APTITUDE</td>
+                    </tr>
+                    <tr>
+                        <td class="subcategory-cell">Logical Thinking</td>
+                        <td class="attribute-cell"><span class="attr a-attr">Advanced</span></td>
+                        <td class="attribute-cell"><span class="attr a-attr">Proficient</span></td>
+                        <td class="attribute-cell"><span class="attr a-attr">Advanced</span></td>
+                        <td class="attribute-cell"><span class="attr a-attr">Developing</span></td>
+                        <td class="attribute-cell"><span class="attr a-attr">Proficient</span></td>
+                        <td class="attribute-cell"><span class="attr a-attr">Proficient</span></td>
+                        <td class="attribute-cell"><span class="attr a-attr">Proficient</span></td>
+                        <td class="attribute-cell"><span class="attr a-attr">Proficient</span></td>
+                        <td class="attribute-cell"><span class="attr a-attr">Advanced</span></td>
+                        <td class="attribute-cell"><span class="attr a-attr">Developing</span></td>
+                    </tr>
+                    <tr>
+                        <td class="subcategory-cell">Spatial-Visual Intelligence</td>
+                        <td class="attribute-cell"><span class="attr a-attr">High</span></td>
+                        <td class="attribute-cell"><span class="attr a-attr">Medium</span></td>
+                        <td class="attribute-cell"><span class="attr a-attr">High</span></td>
+                        <td class="attribute-cell"><span class="attr a-attr">Low</span></td>
+                        <td class="attribute-cell"><span class="attr a-attr">Medium</span></td>
+                        <td class="attribute-cell"><span class="attr a-attr">Medium</span></td>
+                        <td class="attribute-cell"><span class="attr a-attr">High</span></td>
+                        <td class="attribute-cell"><span class="attr a-attr">Medium</span></td>
+                        <td class="attribute-cell"><span class="attr a-attr">High</span></td>
+                        <td class="attribute-cell"><span class="attr a-attr">Low</span></td>
+                    </tr>
+                    <tr>
+                        <td class="subcategory-cell">Verbal Capabilities</td>
+                        <td class="attribute-cell"><span class="attr a-attr">Strong</span></td>
+                        <td class="attribute-cell"><span class="attr a-attr">Average</span></td>
+                        <td class="attribute-cell"><span class="attr a-attr">Strong</span></td>
+                        <td class="attribute-cell"><span class="attr a-attr">Building</span></td>
+                        <td class="attribute-cell"><span class="attr a-attr">Average</span></td>
+                        <td class="attribute-cell"><span class="attr a-attr">Strong</span></td>
+                        <td class="attribute-cell"><span class="attr a-attr">Average</span></td>
+                        <td class="attribute-cell"><span class="attr a-attr">Average</span></td>
+                        <td class="attribute-cell"><span class="attr a-attr">Strong</span></td>
+                        <td class="attribute-cell"><span class="attr a-attr">Building</span></td>
+                    </tr>
+                    <tr>
+                        <td class="subcategory-cell">Mathematical Reasoning</td>
+                        <td class="attribute-cell"><span class="attr a-attr">Advanced</span></td>
+                        <td class="attribute-cell"><span class="attr a-attr">Intermediate</span></td>
+                        <td class="attribute-cell"><span class="attr a-attr">Advanced</span></td>
+                        <td class="attribute-cell"><span class="attr a-attr">Basic</span></td>
+                        <td class="attribute-cell"><span class="attr a-attr">Intermediate</span></td>
+                        <td class="attribute-cell"><span class="attr a-attr">Intermediate</span></td>
+                        <td class="attribute-cell"><span class="attr a-attr">Basic</span></td>
+                        <td class="attribute-cell"><span class="attr a-attr">Intermediate</span></td>
+                        <td class="attribute-cell"><span class="attr a-attr">Advanced</span></td>
+                        <td class="attribute-cell"><span class="attr a-attr">Basic</span></td>
+                    </tr>
+                    <tr>
+                        <td class="subcategory-cell">Creative Problem-Solving</td>
+                        <td class="attribute-cell"><span class="attr a-attr">Conventional</span></td>
+                        <td class="attribute-cell"><span class="attr a-attr">Innovative</span></td>
+                        <td class="attribute-cell"><span class="attr a-attr">Innovative</span></td>
+                        <td class="attribute-cell"><span class="attr a-attr">Structured</span></td>
+                        <td class="attribute-cell"><span class="attr a-attr">Conventional</span></td>
+                        <td class="attribute-cell"><span class="attr a-attr">Structured</span></td>
+                        <td class="attribute-cell"><span class="attr a-attr">Innovative</span></td>
+                        <td class="attribute-cell"><span class="attr a-attr">Conventional</span></td>
+                        <td class="attribute-cell"><span class="attr a-attr">Innovative</span></td>
+                        <td class="attribute-cell"><span class="attr a-attr">Structured</span></td>
+                    </tr>
+                    
+                    <!-- SKILLS SECTION -->
+                    <tr>
+                        <td class="section-header section-skills" colspan="11">SKILLS</td>
+                    </tr>
+                    <tr>
+                        <td class="subcategory-cell">Current Knowledge Level</td>
+                        <td class="attribute-cell"><span class="attr s-attr">Above Grade</span></td>
+                        <td class="attribute-cell"><span class="attr s-attr">At Grade</span></td>
+                        <td class="attribute-cell"><span class="attr s-attr">Above Grade</span></td>
+                        <td class="attribute-cell"><span class="attr s-attr">Below Grade</span></td>
+                        <td class="attribute-cell"><span class="attr s-attr">At Grade</span></td>
+                        <td class="attribute-cell"><span class="attr s-attr">At Grade</span></td>
+                        <td class="attribute-cell"><span class="attr s-attr">At Grade</span></td>
+                        <td class="attribute-cell"><span class="attr s-attr">At Grade</span></td>
+                        <td class="attribute-cell"><span class="attr s-attr">Above Grade</span></td>
+                        <td class="attribute-cell"><span class="attr s-attr">Below Grade</span></td>
+                    </tr>
+                    <tr>
+                        <td class="subcategory-cell">Technical Competencies</td>
+                        <td class="attribute-cell"><span class="attr s-attr">Advanced</span></td>
+                        <td class="attribute-cell"><span class="attr s-attr">Intermediate</span></td>
+                        <td class="attribute-cell"><span class="attr s-attr">Advanced</span></td>
+                        <td class="attribute-cell"><span class="attr s-attr">Beginner</span></td>
+                        <td class="attribute-cell"><span class="attr s-attr">Intermediate</span></td>
+                        <td class="attribute-cell"><span class="attr s-attr">Intermediate</span></td>
+                        <td class="attribute-cell"><span class="attr s-attr">Advanced</span></td>
+                        <td class="attribute-cell"><span class="attr s-attr">Intermediate</span></td>
+                        <td class="attribute-cell"><span class="attr s-attr">Intermediate</span></td>
+                        <td class="attribute-cell"><span class="attr s-attr">Beginner</span></td>
+                    </tr>
+                    <tr>
+                        <td class="subcategory-cell">Learning Velocity</td>
+                        <td class="attribute-cell"><span class="attr s-attr">Fast Learner</span></td>
+                        <td class="attribute-cell"><span class="attr s-attr">Steady Pace</span></td>
+                        <td class="attribute-cell"><span class="attr s-attr">Fast Learner</span></td>
+                        <td class="attribute-cell"><span class="attr s-attr">Needs Time</span></td>
+                        <td class="attribute-cell"><span class="attr s-attr">Steady Pace</span></td>
+                        <td class="attribute-cell"><span class="attr s-attr">Steady Pace</span></td>
+                        <td class="attribute-cell"><span class="attr s-attr">Fast Learner</span></td>
+                        <td class="attribute-cell"><span class="attr s-attr">Steady Pace</span></td>
+                        <td class="attribute-cell"><span class="attr s-attr">Steady Pace</span></td>
+                        <td class="attribute-cell"><span class="attr s-attr">Needs Time</span></td>
+                    </tr>
+                    <tr>
+                        <td class="subcategory-cell">Communication Skills</td>
+                        <td class="attribute-cell"><span class="attr s-attr">Articulate</span></td>
+                        <td class="attribute-cell"><span class="attr s-attr">Articulate</span></td>
+                        <td class="attribute-cell"><span class="attr s-attr">Competent</span></td>
+                        <td class="attribute-cell"><span class="attr s-attr">Developing</span></td>
+                        <td class="attribute-cell"><span class="attr s-attr">Articulate</span></td>
+                        <td class="attribute-cell"><span class="attr s-attr">Competent</span></td>
+                        <td class="attribute-cell"><span class="attr s-attr">Articulate</span></td>
+                        <td class="attribute-cell"><span class="attr s-attr">Competent</span></td>
+                        <td class="attribute-cell"><span class="attr s-attr">Developing</span></td>
+                        <td class="attribute-cell"><span class="attr s-attr">Competent</span></td>
+                    </tr>
+                    
+                    <!-- CHARACTER SECTION -->
+                    <tr>
+                        <td class="section-header section-character" colspan="11">CHARACTER</td>
+                    </tr>
+                    <tr>
+                        <td class="subcategory-cell">Growth Mindset</td>
+                        <td class="attribute-cell"><span class="attr c-attr">Strong</span></td>
+                        <td class="attribute-cell"><span class="attr c-attr">Strong</span></td>
+                        <td class="attribute-cell"><span class="attr c-attr">Strong</span></td>
+                        <td class="attribute-cell"><span class="attr c-attr">Developing</span></td>
+                        <td class="attribute-cell"><span class="attr c-attr">Developing</span></td>
+                        <td class="attribute-cell"><span class="attr c-attr">Developing</span></td>
+                        <td class="attribute-cell"><span class="attr c-attr">Strong</span></td>
+                        <td class="attribute-cell"><span class="attr c-attr">Developing</span></td>
+                        <td class="attribute-cell"><span class="attr c-attr">Fixed</span></td>
+                        <td class="attribute-cell"><span class="attr c-attr">Strong</span></td>
+                    </tr>
+                    <tr>
+                        <td class="subcategory-cell">Resilience Level</td>
+                        <td class="attribute-cell"><span class="attr c-attr">High</span></td>
+                        <td class="attribute-cell"><span class="attr c-attr">High</span></td>
+                        <td class="attribute-cell"><span class="attr c-attr">Moderate</span></td>
+                        <td class="attribute-cell"><span class="attr c-attr">Low</span></td>
+                        <td class="attribute-cell"><span class="attr c-attr">Moderate</span></td>
+                        <td class="attribute-cell"><span class="attr c-attr">High</span></td>
+                        <td class="attribute-cell"><span class="attr c-attr">High</span></td>
+                        <td class="attribute-cell"><span class="attr c-attr">Moderate</span></td>
+                        <td class="attribute-cell"><span class="attr c-attr">Low</span></td>
+                        <td class="attribute-cell"><span class="attr c-attr">Moderate</span></td>
+                    </tr>
+                    <tr>
+                        <td class="subcategory-cell">Persistence</td>
+                        <td class="attribute-cell"><span class="attr c-attr">Highly Persistent</span></td>
+                        <td class="attribute-cell"><span class="attr c-attr">Moderately</span></td>
+                        <td class="attribute-cell"><span class="attr c-attr">Highly Persistent</span></td>
+                        <td class="attribute-cell"><span class="attr c-attr">Easily Discouraged</span></td>
+                        <td class="attribute-cell"><span class="attr c-attr">Moderately</span></td>
+                        <td class="attribute-cell"><span class="attr c-attr">Highly Persistent</span></td>
+                        <td class="attribute-cell"><span class="attr c-attr">Moderately</span></td>
+                        <td class="attribute-cell"><span class="attr c-attr">Moderately</span></td>
+                        <td class="attribute-cell"><span class="attr c-attr">Easily Discouraged</span></td>
+                        <td class="attribute-cell"><span class="attr c-attr">Moderately</span></td>
+                    </tr>
+                    <tr>
+                        <td class="subcategory-cell">Focus Pattern</td>
+                        <td class="attribute-cell"><span class="attr c-attr">Deep Focus</span></td>
+                        <td class="attribute-cell"><span class="attr c-attr">Interval Focus</span></td>
+                        <td class="attribute-cell"><span class="attr c-attr">Deep Focus</span></td>
+                        <td class="attribute-cell"><span class="attr c-attr">Short Bursts</span></td>
+                        <td class="attribute-cell"><span class="attr c-attr">Interval Focus</span></td>
+                        <td class="attribute-cell"><span class="attr c-attr">Deep Focus</span></td>
+                        <td class="attribute-cell"><span class="attr c-attr">Short Bursts</span></td>
+                        <td class="attribute-cell"><span class="attr c-attr">Interval Focus</span></td>
+                        <td class="attribute-cell"><span class="attr c-attr">Interval Focus</span></td>
+                        <td class="attribute-cell"><span class="attr c-attr">Short Bursts</span></td>
+                    </tr>
+                    <tr>
+                        <td class="subcategory-cell">Goal Orientation</td>
+                        <td class="attribute-cell"><span class="attr c-attr">Long-term</span></td>
+                        <td class="attribute-cell"><span class="attr c-attr">Short-term</span></td>
+                        <td class="attribute-cell"><span class="attr c-attr">Long-term</span></td>
+                        <td class="attribute-cell"><span class="attr c-attr">Immediate</span></td>
+                        <td class="attribute-cell"><span class="attr c-attr">Short-term</span></td>
+                        <td class="attribute-cell"><span class="attr c-attr">Long-term</span></td>
+                        <td class="attribute-cell"><span class="attr c-attr">Immediate</span></td>
+                        <td class="attribute-cell"><span class="attr c-attr">Short-term</span></td>
+                        <td class="attribute-cell"><span class="attr c-attr">Short-term</span></td>
+                        <td class="attribute-cell"><span class="attr c-attr">Immediate</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="legend">
+            <div class="legend-item">
+                <div class="legend-title">Profile 1: Academic Achiever</div>
+                <div class="legend-desc">High performer, formal tone, achievement-driven, deep focus</div>
+            </div>
+            <div class="legend-item">
+                <div class="legend-title">Profile 2: Creative Explorer</div>
+                <div class="legend-desc">Social, Gen-Z tone, kinesthetic learner, innovative thinking</div>
+            </div>
+            <div class="legend-item">
+                <div class="legend-title">Profile 3: Quiet Genius</div>
+                <div class="legend-desc">Introverted, brilliant, solo study, mastery-focused</div>
+            </div>
+            <div class="legend-item">
+                <div class="legend-title">Profile 4: Struggling Fighter</div>
+                <div class="legend-desc">Needs support, casual tone, low resilience, immediate goals</div>
+            </div>
+            <div class="legend-item">
+                <div class="legend-title">Profile 5: Social Learner</div>
+                <div class="legend-desc">Group study, auditory, social motivation, articulate</div>
+            </div>
+            <div class="legend-item">
+                <div class="legend-title">Profile 6: Methodical Planner</div>
+                <div class="legend-desc">Structured, formal, persistent, long-term focused</div>
+            </div>
+            <div class="legend-item">
+                <div class="legend-title">Profile 7: Gen-Z Maverick</div>
+                <div class="legend-desc">Tech-savvy, Gen-Z tone, innovative, immediate results</div>
+            </div>
+            <div class="legend-item">
+                <div class="legend-title">Profile 8: Steady Progresser</div>
+                <div class="legend-desc">Balanced, casual tone, steady pace, mastery-driven</div>
+            </div>
+            <div class="legend-item">
+                <div class="legend-title">Profile 9: Underconfident Talent</div>
+                <div class="legend-desc">High potential, low confidence, fixed mindset, introverted</div>
+            </div>
+            <div class="legend-item">
+                <div class="legend-title">Profile 10: Enthusiastic Beginner</div>
+                <div class="legend-desc">Eager, Gen-Z tone, needs support, strong growth mindset</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
