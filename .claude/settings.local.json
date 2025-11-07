@@ -2,10 +2,7 @@
   "permissions": {
     "allow": [
       "Bash(git remote add:*)",
-      "Bash(git add:*)",
-      "Bash(git commit -m \"$(cat <<''EOF''\nComplete PASCO Framework implementation with all 10 student personas\n\n- Added modern landing page with colorful gradient header\n- Implemented persona selector dropdown with 10 student types\n- Created dynamic PASCO tables (Personality, Aptitude, Skills, Character)\n- Added persona-specific attribute highlighting with green gradients\n- Built PersonaDetails component with gradient card sections\n- Implemented all 10 student personas with detailed profiles:\n  * Academic Achiever\n  * Creative Explorer\n  * Quiet Genius\n  * Struggling Fighter\n  * Social Learner\n  * Methodical Planner\n  * Gen-Z Maverick\n  * Steady Progresser\n  * Underconfident Talent\n  * Enthusiastic Beginner\n- Marked adaptive subcategories with orange gradient headers\n- Responsive design with Tailwind CSS and modern typography\n\n🤖 Generated with Claude Code\n\nCo-Authored-By: Claude <noreply@anthropic.com>\nEOF\n)\")",
-      "Bash(git push:*)",
-      "Bash(git commit:*)"
+      "Bash(git add:*)"
     ],
     "deny": [],
     "ask": []
