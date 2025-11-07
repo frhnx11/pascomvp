@@ -710,7 +710,7 @@ Their moderate resilience and persistence mean they bounce back from setbacks re
       </main>
 
       {/* Persona Details Section */}
-      {selectedPersona && personaDetails[selectedPersona] && (
+      {selectedPersona && personaDetails[selectedPersona as keyof typeof personaDetails] && (
         <PersonaDetails selectedPersona={selectedPersona} personaDetails={personaDetails} />
       )}
 
